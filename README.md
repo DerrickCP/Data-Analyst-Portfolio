@@ -21,7 +21,7 @@ SELECT location, date, total_cases, total_deaths
 	FROM PortfolioProject.dbo.COVID19
 		ORDER BY 1, 2;
 
-		-- The United States* --
+-- The United States* --
 
 SELECT location, date, total_cases, total_deaths	
 	FROM PortfolioProject.dbo.COVID19
@@ -38,7 +38,7 @@ SELECT location, date, total_cases,total_deaths,
 			GROUP BY location, date, total_cases, total_deaths
 			ORDER BY 1, 2;
 
-		-- The United States* --
+-- The United States* --
 
 SELECT location, date, total_cases,total_deaths,
 	(total_deaths / total_cases) * 100 AS Death_rate
@@ -56,7 +56,7 @@ SELECT location, date, population, total_cases
 			GROUP BY location,date, population, total_Cases
 			ORDER BY 1, 2;
 
-		-- THE UNITED STATES* --
+-- THE UNITED STATES* --
 
 SELECT location, date, population, total_cases
 		FROM PortfolioProject.dbo.COVID19
@@ -111,7 +111,6 @@ SELECT SUM(new_cases) AS Total_Cases,
 
 
 --Total populations vs Total Vaccinated**--
-
 		WITH PvsV (location, date, population, new_vaccinations, Total_vaccinations) 
 			AS
 			(
@@ -126,7 +125,6 @@ SELECT SUM(new_cases) AS Total_Cases,
 							GROUP BY co.location, co.location, co.date, co.population, cop2.new_vaccinations
 								--ORDER BY 1, 2
 								)
-
 			SELECT *, (Total_Vaccinations / population) * 100 AS Pct_of_Vaccinated
 				FROM PvsV
 					WHERE location NOT LIKE ('%Income%')
@@ -151,7 +149,6 @@ SELECT location, date, population, total_cases, (total_cases / population) * 100
 		 WHEN date BETWEEN '2020-10-01' AND '2020-10-31' THEN 'October'
 		 WHEN date BETWEEN '2020-11-01' AND '2020-11-30' THEN 'November'
 		 WHEN date BETWEEN '2020-12-01' AND '2020-12-31' THEN 'December'
-
 		 WHEN date BETWEEN '2021-01-01' AND '2021-01-31' THEN 'January'
 		 WHEN date BETWEEN '2021-02-01' AND '2021-02-28' THEN 'February'
 		 WHEN date BETWEEN '2021-03-01' AND '2021-03-31' THEN 'March'
@@ -164,13 +161,11 @@ SELECT location, date, population, total_cases, (total_cases / population) * 100
 		 WHEN date BETWEEN '2021-10-01' AND '2021-10-31' THEN 'October'
 		 WHEN date BETWEEN '2021-11-01' AND '2021-11-02' THEN 'November' END
 		) AS DateMonth
-
 			FROM PortfolioProject.dbo.COVID19
 			WHERE location = 'World'
 				GROUP BY location, date, population, total_cases
 				ORDER BY Monthly_Infection_Rate DESC
 )				
-
 	SELECT MAX(Monthly_Infection_Rate)
 		FROM MonthlyInfectionCTE
 
