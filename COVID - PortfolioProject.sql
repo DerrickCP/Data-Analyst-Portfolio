@@ -111,29 +111,6 @@ SELECT SUM(new_cases) AS Total_Cases,
 			
 
 
---Total populations vs Total Vaccinated**--
-
-		WITH PvsV (location, date, population, new_vaccinations, Total_vaccinations) 
-			AS
-			(
-			SELECT co.location, co.date, co.population, cop2.new_vaccinations,
-			SUM(CONVERT(BIGINT, cop2.new_vaccinations)) OVER (PARTITION BY co.location ORDER BY co.location, co.date) AS Total_Vaccinations
-			--(Total_Vaccinations / co.population) * 100 AS Pct_of_Vaccinated
-				FROM PortfolioProject.dbo.COVID19 AS co
-					JOIN PortfolioProject.dbo.COVID19part2 AS cop2
-						ON co.date = cop2.date
-						AND co.location = cop2.location
-							WHERE co.continent IS NOT NULL
-							GROUP BY co.location, co.location, co.date, co.population, cop2.new_vaccinations
-								--ORDER BY 1, 2
-								)
-
-			SELECT *, (Total_Vaccinations / population) * 100 AS Pct_of_Vaccinated
-				FROM PvsV
-					WHERE location NOT LIKE ('%Income%')
-								;
-						
-
 --Monthly Infection Rate--
 
 WITH MonthlyInfectionCTE AS
@@ -141,7 +118,8 @@ WITH MonthlyInfectionCTE AS
 SELECT location, date, population, total_cases, (total_cases / population) * 100 AS Monthly_Infection_Rate,
 (
 	CASE 
-		 WHEN date BETWEEN '2020-02-24' AND '2020-02-28' THEN 'February'
+		 WHEN date BETWEEN '2020-01-22' AND '2020-01-31' THEN 'February'
+		 WHEN date BETWEEN '2020-02-01' AND '2020-02-28' THEN 'February'
 		 WHEN date BETWEEN '2020-03-01' AND '2020-03-31' THEN 'March'
 		 WHEN date BETWEEN '2020-04-01' AND '2020-04-30' THEN 'April'
 		 WHEN date BETWEEN '2020-05-01' AND '2020-05-31' THEN 'May'
@@ -159,7 +137,7 @@ SELECT location, date, population, total_cases, (total_cases / population) * 100
 		 WHEN date BETWEEN '2021-04-01' AND '2021-04-30' THEN 'April'
 		 WHEN date BETWEEN '2021-05-01' AND '2021-05-31' THEN 'May'
 		 WHEN date BETWEEN '2021-06-01' AND '2021-06-30' THEN 'June'
-		 WHEN date BETWEEN '2021-07-01' AND '2021-07-02' THEN 'July'
+		 WHEN date BETWEEN '2021-07-01' AND '2021-07-31' THEN 'July'
 		 WHEN date BETWEEN '2021-08-01' AND '2021-08-31' THEN 'August'
 		 WHEN date BETWEEN '2021-09-01' AND '2021-09-30' THEN 'September'
 		 WHEN date BETWEEN '2021-10-01' AND '2021-10-31' THEN 'October'
@@ -169,11 +147,13 @@ SELECT location, date, population, total_cases, (total_cases / population) * 100
 			FROM PortfolioProject.dbo.COVID19
 			WHERE location = 'World'
 				GROUP BY location, date, population, total_cases
-				ORDER BY Monthly_Infection_Rate DESC
+				--ORDER BY Monthly_Infection_Rate DESC
 )				
 
-	SELECT MAX(Monthly_Infection_Rate)
-		FROM MonthlyInfectionCTE
+	SELECT location, date, population, total_cases, (total_cases / population) * 100 AS Monthly_Infection_Rate, DateMonth
+		FROM MonthlyInfectionCTE AS m_cte
+			GROUP BY location, date, population, total_cases, DateMonth
+			ORDER BY Monthly_Infection_Rate DESC
 
 
 
@@ -260,3 +240,6 @@ SELECT DISTINCT location, population, MAX(total_cases) AS Infection_Count
 			WHERE continent IS NOT NUll
 				GROUP BY location, population
 				ORDER BY MAX(total_cases) DESC; 
+
+							
+						
