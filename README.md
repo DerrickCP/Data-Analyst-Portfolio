@@ -14,6 +14,11 @@ Tools:
   - [Anxiety Gaming Study (SQL)](https://github.com/DerrickCP/DataPortfolio/blob/main/Anxiety%20Gaming%20Study%20Data%20cleaning%20%26%20Analysis.sql): Based on a professional study on gaming anxiety, we deep dive in the dataset to find the common habits of gamers that have high levels of anxiety.
 
 
+- ### Tableau Visualization
+  - [Bank Marketing](https://public.tableau.com/app/profile/derrick4694/viz/BankMarketingData_16489425424360/DynamicGraphs?publish=yes)
+  - [Anxiety Gaming Study](https://public.tableau.com/app/profile/derrick4694/viz/OnlineGamingAnxiety/Dashboard1?publish=yes)
+
+
 - ### PowerPoint Presentations
   - [Bank Marketing](https://github.com/DerrickCP/DataPortfolio/blob/main/Bank%20Marketing%20-%20Slides.pdf)
   - [Anxiety Gaming Study](https://github.com/DerrickCP/DataPortfolio/blob/main/Online%20Gaming%20Anxiety%20Survey%20-%20Slides.pdf)
