@@ -9,7 +9,7 @@ Tools:
 ### Contents
 ****
 
-- ### Data Analysis & Visualization
+- ### Data Cleaning & Analysis
   - [Bank Marketing (SQL)](https://github.com/DerrickCP/DataPortfolio/blob/main/Bank%20Marketing%20Data%20cleaning%20%26%20Analysis.sql): An analysis of a banking survey with an objective to help a bank find the demographics of their ideal customer.
   - [Anxiety Gaming Study (SQL)](https://github.com/DerrickCP/DataPortfolio/blob/main/Anxiety%20Gaming%20Study%20Data%20cleaning%20%26%20Analysis.sql): Based on a professional study on gaming anxiety, we deep dive in the dataset to find the common habits of gamers that have high levels of anxiety.
 
