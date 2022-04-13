@@ -1,4 +1,4 @@
-# Data Portfolio
+# Data Analyst Portfolio
 Repository containing my portfolio of data analyst projects for academia, self-learning, & professional purposes. Presented in the form of SSMS (SQL), Excel, & Jupiter Notebooks.
 
 Tools:
