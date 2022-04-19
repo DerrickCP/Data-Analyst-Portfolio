@@ -25,7 +25,7 @@ Tools:
   - [Anxiety Gaming Study](https://github.com/DerrickCP/DataPortfolio/blob/main/Online%20Gaming%20Anxiety%20Survey%20-%20Slides.pdf)
 
 - ### Minor Projects
-   - [Airbnb 2019 NYC (SQL)](https://github.com/DerrickCP/DataPortfolio/blob/main/Abnb%20-%20SQL%20Data%20Cleaning.sql): With data on Airbnb's listings in New York City from 2019, we'll be focusing on solely data cleaning the dataset for optimized analysis.
+   - [Airbnb 2019 NYC (SQL)](https://github.com/DerrickCP/DataPortfolio/blob/main/Abnb%20-%20SQL%20Data%20Cleaning.sql): With data on Airbnb's listings in New York City from 2019, we'll be focusing on solely data cleaning for optimized analysis.
    - [Levels of Salary Data (Excel)](https://github.com/DerrickCP/DataPortfolio/blob/main/Levels_Fyi_Salary_Data%20(Raw%2BClean)%20-%20Excel%20Data%20Cleaning.xlsx): Containing data on tech salary content from salary levels to demographics. Solely focused on data cleaning on Excel using VLOOKUP, IF functions, LEN, etc.
 
 
